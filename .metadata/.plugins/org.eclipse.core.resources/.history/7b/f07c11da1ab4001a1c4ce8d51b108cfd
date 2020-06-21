@@ -1,0 +1,5 @@
+package com.Tecsup.DAO;
+
+public interface Connection {
+
+}
