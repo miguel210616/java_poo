@@ -1,0 +1,6 @@
+package com.Tecsup.clases;
+
+public class Libreria implements Libreria{
+	
+
+}

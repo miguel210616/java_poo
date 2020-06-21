@@ -1,0 +1,6 @@
+#Encuensta realizada a Alejandra
+#Sun May 24 20:00:11 COT 2020
+Ususario=Alejandra
+Buscador=Google
+sexo=F
+Email=ale.jandra@gmail.com

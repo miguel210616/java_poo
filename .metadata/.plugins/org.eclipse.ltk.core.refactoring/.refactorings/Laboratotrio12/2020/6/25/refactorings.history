@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;com.vista.DAO&apos; to &apos;com.Tecsup.DAO&apos;&#x0D;&#x0A;- Original project: &apos;Laboratotrio12&apos;&#x0D;&#x0A;- Original element: &apos;Laboratotrio12/src/com.vista.DAO&apos;&#x0D;&#x0A;- Renamed element: &apos;Laboratotrio12/src/com.Tecsup.DAO&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;com.vista.DAO&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;com.vista.DAO" name="com.Tecsup.DAO" qualified="false" references="true" stamp="1592774908498" textual="false" version="1.0"/>
+</session>

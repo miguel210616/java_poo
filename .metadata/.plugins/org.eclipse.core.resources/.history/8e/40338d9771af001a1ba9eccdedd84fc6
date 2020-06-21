@@ -1,0 +1,161 @@
+package com.Tecsup.vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import com.Tecsup.datos.Libreria;
+
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Examen03 extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textCodigo;
+	private JTextField textApellidos;
+	private JTextField textNombres;
+	private JTextField textRuc;
+	private JTextField textLineaCredito;
+	private JTable tableReporte;
+
+	/**
+	 * Launch the application.
+	 */
+	Libreria lib = new Libreria();
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Examen03 frame = new Examen03();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Examen03() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 599, 569);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(null, "Registro de datos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBounds(12, 13, 557, 279);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblCdigo = new JLabel("C\u00F3digo");
+		lblCdigo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCdigo.setBounds(42, 39, 68, 23);
+		panel.add(lblCdigo);
+		
+		JLabel lblApellidos = new JLabel("Apellidos");
+		lblApellidos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblApellidos.setBounds(42, 88, 68, 23);
+		panel.add(lblApellidos);
+		
+		JLabel lblNombres = new JLabel("Nombres");
+		lblNombres.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNombres.setBounds(42, 137, 68, 23);
+		panel.add(lblNombres);
+		
+		JLabel lblRuc = new JLabel("RUC");
+		lblRuc.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblRuc.setBounds(42, 189, 68, 23);
+		panel.add(lblRuc);
+		
+		JLabel lblLineaDeCrdito = new JLabel("Linea de cr\u00E9dito");
+		lblLineaDeCrdito.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblLineaDeCrdito.setBounds(42, 229, 128, 29);
+		panel.add(lblLineaDeCrdito);
+		
+		textCodigo = new JTextField();
+		textCodigo.setBounds(178, 40, 116, 22);
+		panel.add(textCodigo);
+		textCodigo.setColumns(10);
+		
+		textApellidos = new JTextField();
+		textApellidos.setBounds(178, 89, 234, 22);
+		panel.add(textApellidos);
+		textApellidos.setColumns(10);
+		
+		textNombres = new JTextField();
+		textNombres.setBounds(178, 138, 234, 22);
+		panel.add(textNombres);
+		textNombres.setColumns(10);
+		
+		textRuc = new JTextField();
+		textRuc.setBounds(178, 190, 176, 22);
+		panel.add(textRuc);
+		textRuc.setColumns(10);
+		
+		textLineaCredito = new JTextField();
+		textLineaCredito.setBounds(178, 233, 116, 22);
+		panel.add(textLineaCredito);
+		textLineaCredito.setColumns(10);
+		
+		tableReporte = new JTable();
+		tableReporte.setBorder(new LineBorder(new Color(0, 0, 0)));
+		tableReporte.setModel(new DefaultTableModel(
+			new Object[][] {
+				{"C\u00D3DIGO", "APELLIDOS", "NOMBRES", "RUC", "LINEA DE CR\u00C9DITO"},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+			},
+			new String[] {
+				"New column", "New column", "New column", "New column", "New column"
+			}
+		));
+		tableReporte.getColumnModel().getColumn(0).setPreferredWidth(66);
+		tableReporte.getColumnModel().getColumn(1).setPreferredWidth(85);
+		tableReporte.setBounds(12, 310, 557, 112);
+		contentPane.add(tableReporte);
+		
+		JButton btnRegistrar = new JButton("Registrar");
+		btnRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				lib.Insertar(Integer.parseInt(textCodigo.getText()), 
+							textApellidos.getText(), textNombres.getText(), 
+							textRuc.getText(), 
+							Double.parseDouble(textLineaCredito.getText()));
+			}
+			
+		});
+		btnRegistrar.setBounds(65, 466, 97, 25);
+		contentPane.add(btnRegistrar);
+		
+		JButton btnMostrar = new JButton("Mostrar");
+		btnMostrar.setBounds(243, 466, 97, 25);
+		contentPane.add(btnMostrar);
+		
+		JButton btnBuscar = new JButton("Buscar");
+		btnBuscar.setBounds(411, 466, 97, 25);
+		contentPane.add(btnBuscar);
+	}
+}

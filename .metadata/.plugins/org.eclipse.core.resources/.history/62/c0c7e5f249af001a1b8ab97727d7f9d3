@@ -1,0 +1,43 @@
+package com.Tecsup.mantenimiento;
+import java.sql.*;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.Tecsup.clases.DAO;
+
+public class Libreria implements DAO{
+	public Connection conn;
+	public PreparedStatement sen;
+	public ResultSet data;
+	public String driver = "com.mysql.jdbc.Driver";
+	public String cadena = "jdbc:mysql://localhost/semana12";
+	public String usuario = "root";
+	public String clave = "";
+	
+	@Override
+	public Connection conexion() {
+		try {
+			Class.forName(driver);
+			conn= DriverManager.getConnection(cadena,usuario,clave);
+		}catch(ClassNotFoundException e1) {
+			System.out.println("Error en el driver");
+		}catch(SQLException e2) {
+			System.out.println("Error en la conexión");
+		}
+		return conn;
+	}
+
+	@Override
+	public boolean insertar(int art_codigo, String art_nombre, int art_stock, double art_precio) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ResultSet consulta(String codigosql) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
