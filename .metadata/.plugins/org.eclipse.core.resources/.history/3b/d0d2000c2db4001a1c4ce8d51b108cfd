@@ -1,0 +1,53 @@
+package com.Tecsup.mantenimiento;
+import java.sql.*;
+import com.Tecsup.DAO.Conexion;
+
+public class Libreria implements Conexion{
+	
+	public Connection conn;
+	public PreparedStatement sen;
+	public Statement datarequest;
+	public ResultSet data;
+	public String driver = "com.mysql.jdbc.Driver";
+	public String cadena = "jdbc:mysql://localhost/ventas2020";
+	public String user = "root";
+	public String password = "";
+	
+	@Override
+	public Connection conexionDB() {
+		try {
+		Class.forName(driver);
+		conn = DriverManager.getConnection(cadena,user,password);
+		System.out.println("Buena conexión");
+		}catch(ClassNotFoundException e1){
+			System.out.println("Driver error");
+		}catch(SQLException e2) {
+			System.out.println("Connection error");
+		}
+		return conn;
+	}
+
+	@Override
+	public boolean insertar(int codigo, String nombre, int cantidad, double precio) {		
+		try {
+			String querySql = "insert into productos values(?,?,?,?)";
+			sen = conexionDB().prepareStatement(querySql);
+			sen.setInt(1,codigo);
+			sen.setString(2, nombre);
+			sen.setInt(3, cantidad);
+			sen.setDouble(5,precio);
+			sen.executeQuery();
+			System.out.println("Successful insert");
+		}catch(SQLException e3) {
+			System.out.println("Insert error");
+		}
+		return true;
+	}
+
+	@Override
+	public ResultSet data(String querySql) {
+		
+		return null;
+	}
+
+}

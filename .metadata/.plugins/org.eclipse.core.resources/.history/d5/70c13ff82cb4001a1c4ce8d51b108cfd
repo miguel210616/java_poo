@@ -1,0 +1,36 @@
+package com.Tecsup.mantenimiento;
+import java.sql.*;
+import com.Tecsup.DAO.Conexion;
+
+public class Libreria implements Conexion{
+	
+	public Connection conn;
+	public PreparedStatement sen;
+	public Statement datarequest;
+	public ResultSet data;
+	public String driver = "com.mysql.jdbc.Driver";
+	public String cadena = "jdbc:mysql://localhost/ventas2020";
+	public String user = "root";
+	public String password = "";
+	
+	
+
+	@Override
+	public Connection conexion() {
+		
+		return null;
+	}
+
+	@Override
+	public boolean insertar(int codigo, String nombre, int cantidad, double precio) {
+		
+		return false;
+	}
+
+	@Override
+	public ResultSet data(String querySql) {
+		
+		return null;
+	}
+
+}

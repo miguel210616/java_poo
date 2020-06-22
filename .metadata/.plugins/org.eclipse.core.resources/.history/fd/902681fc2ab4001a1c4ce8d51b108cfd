@@ -1,0 +1,26 @@
+package com.Tecsup.mantenimiento;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import com.Tecsup.DAO.Conexion;
+
+public class Libreria implements Conexion{
+
+	@Override
+	public Connection conexion() {
+		
+		return null;
+	}
+
+	@Override
+	public boolean insertar(int codigo, String nombre, int cantidad, double precio) {
+		
+		return false;
+	}
+
+	@Override
+	public ResultSet data(String querySql) {
+		
+		return null;
+	}
+
+}

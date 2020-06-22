@@ -1,0 +1,71 @@
+package com.Tecsup.vista;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JDialog;
+import javax.swing.JMenu;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Menu extends JFrame {
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Menu frame = new Menu();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Menu() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 556, 399);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnMantenimiento = new JMenu("Mantenimiento");
+		menuBar.add(mnMantenimiento);
+		
+		JMenuItem mntmRegistrar = new JMenuItem("Registrar");
+		mntmRegistrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Registrar r = new Registrar();
+				r.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+				r.setVisible(true);
+				
+			}
+		});
+		mnMantenimiento.add(mntmRegistrar);
+		
+		JMenuItem mntmConsultar = new JMenuItem("Consultar");
+		mnMantenimiento.add(mntmConsultar);
+		
+		JMenuItem mntmBuscar = new JMenuItem("Buscar");
+		mnMantenimiento.add(mntmBuscar);
+		
+		JMenu mnReporte = new JMenu("Reporte");
+		menuBar.add(mnReporte);
+		
+		JMenu mnAyuda = new JMenu("Ayuda");
+		menuBar.add(mnAyuda);
+	}
+}

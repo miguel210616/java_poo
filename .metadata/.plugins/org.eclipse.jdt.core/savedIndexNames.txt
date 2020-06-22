@@ -1,7 +1,6 @@
 INDEX VERSION 1.131+D:\wrkTecsup\Lab_04\.metadata\.plugins\org.eclipse.jdt.core
 1857708344.index
 861996145.index
-4123673389.index
 4151232427.index
 4146239840.index
 1728851219.index
